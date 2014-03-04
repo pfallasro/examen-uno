@@ -17,29 +17,7 @@ appDirectives.directive("panel", function() {
     }
 })
 
-appDirectives.directive("codigo", function() {
-    return{
-        restrict: 'E',
-        scope:{
-            codigo: "@",
-            nombre: "@",
-            papellido: "@",
-            sapellido: "@"
-        },
-        template:"<span>{{nombre}}.chartAt(0)</span>"
-    }
-})
 
-
-appDirectives.directive("enter", function() {
-    return function(scope, element, attrs) {
-
-        element.text = attrs
-        element.bind("mouseenter", function() {
-            element.addClass(attrs.enter);
-        })
-    }
-})
 
 
 
