@@ -44,9 +44,11 @@
 
             <div class="col-md-5">
               <panel title="{{titleAgregados}}">
+                  Buscar:
+                  <input type="text" ng-model="search.nombre" style="margin-bottom: 10px">
                   <table class="table-bordered table">
                       <th></th><th>Nombre:</th><th>Codigo:</th>
-                      <tr ng-repeat="agente in list | aceptado ">
+                      <tr ng-repeat="agente in list | aceptado | filter:search ">
                           <td><input type="checkbox" ng-model="agente.done"></td>
                           <td><span class="done-{{agente.done}}">{{agente.nombre}} {{agente.papellido}} {{agente.sapellido}}</span></td>
                           <td><span class="done-{{agente.done}}">{{agente|codigo}}</span></td>
@@ -76,12 +78,14 @@
               <div class="col-md-5">
 
                   <panel title="{{titleRemovidos}}">
+                      Buscar:
+                      <input type="text" ng-model="search.nombre" style="margin-bottom: 10px">
 
                       <table class="table-bordered table">
 
                           <th></th> <th>Nombre:</th> <th>Codigo:</th>
 
-                          <tr ng-repeat="agente in list | removido">
+                          <tr ng-repeat="agente in list | removido | filter:search">
                               <td><input type="checkbox" ng-model="agente.done"></td>
                               <td><span class="done-{{agente.done}}">{{agente.nombre}} {{agente.papellido}} {{agente.sapellido}}</span></td>
                               <td><span class="done-{{agente.done}}"> {{agente|codigo}}</span></td>
